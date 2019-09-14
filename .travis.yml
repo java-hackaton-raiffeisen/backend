@@ -1,0 +1,12 @@
+language: java
+
+jdk: openjdk8
+
+env:
+  global:
+    - CODECOV_TOKEN="1c45d61e-9a87-40ad-8a07-8d9be30d2aad"
+
+sudo: false
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
