@@ -39,13 +39,13 @@ public class Contract {
 
     @Getter
     @Setter
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ord_id", referencedColumnName = "ord_id")
     private Ord ord;
 
     @Getter
     @Setter
-    @OneToOne(mappedBy = "contract", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "contract", fetch = FetchType.EAGER)
     private Payment payment;
 
 }

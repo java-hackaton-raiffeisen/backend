@@ -23,7 +23,7 @@ public class Recommendation {
 
     @Setter
     @Getter
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_recommendation",
             joinColumns = @JoinColumn(name = "recommendation_id"),

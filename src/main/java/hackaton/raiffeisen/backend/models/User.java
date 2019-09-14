@@ -33,8 +33,8 @@ public class User {
 
     @Getter
     @Setter
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private Set<Ord> orders;
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<Client> clients;
 
     @Getter
     @Setter

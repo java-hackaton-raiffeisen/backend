@@ -17,25 +17,20 @@ public class Ord {
 
     @Getter
     @Setter
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ord_type_id")
     private OrderType type;
 
-    @Getter
-    @Setter
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
 
     @Getter
     @Setter
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private Client client;
 
     @Getter
     @Setter
-    @OneToOne(mappedBy = "ord", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "ord", fetch = FetchType.EAGER)
     private Contract contract;
 
 

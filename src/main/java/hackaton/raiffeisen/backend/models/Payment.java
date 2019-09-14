@@ -28,7 +28,7 @@ public class Payment {
 
     @Getter
     @Setter
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "contract_id", referencedColumnName = "contract_id")
     private Contract contract;
 

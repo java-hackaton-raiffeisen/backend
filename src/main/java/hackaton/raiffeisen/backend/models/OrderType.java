@@ -23,7 +23,7 @@ public class OrderType {
 
     @Getter
     @Setter
-    @OneToMany(mappedBy = "type", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "type", fetch = FetchType.EAGER)
     private Set<Ord> orders;
 
 }

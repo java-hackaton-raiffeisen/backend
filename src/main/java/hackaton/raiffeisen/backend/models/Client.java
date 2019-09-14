@@ -33,10 +33,14 @@ public class Client {
 
     @Getter
     @Setter
-    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     private Set<Ord> ord;
-
-
 
 
 }
