@@ -15,7 +15,10 @@ public class ScheduledTasks {
         this.userRepository = userRepository;
     }
 
-    @Scheduled(cron = "0 0 0 1 1/1 *")
+    /**
+     * налог взымается 13 числа каждого месяца
+     */
+    @Scheduled(cron = "0 0 0 13 1/1 *")
     public void taxPay(){
 
     }

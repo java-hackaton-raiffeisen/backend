@@ -24,8 +24,10 @@ public class RestUserController {
         this.userRepository = userRepository;
     }
 
+//  TODO: при генерации примера для ApiParam не указывается корневой элемент "user"
     @ApiOperation(value = "Создание пользователя")
     @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Пользователь создан"),
             @ApiResponse(code = 400, message = "Введены некорректные данные о пользователе"),
             @ApiResponse(code = 500, message = "Ошибка при сохранении в БД")
     })
@@ -33,8 +35,8 @@ public class RestUserController {
     public ResponseEntity createUser(
             @ApiParam(value = "Объект пользователя из формы", required = true)
             @RequestBody User user) {
-        userRepository.save(user);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        User savedUser = userRepository.save(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Пользователь создан {\"userId\": " + savedUser.getId() + "}");
     }
 
 }
