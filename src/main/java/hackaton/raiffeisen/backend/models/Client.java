@@ -1,5 +1,6 @@
 package hackaton.raiffeisen.backend.models;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "client")
+@JsonRootName(value = "client")
 public class Client {
 
     @Id
@@ -18,8 +20,18 @@ public class Client {
 
     @Getter
     @Setter
-    @Column(name = "full_name")
-    private String fullName;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Getter
+    @Setter
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Getter
+    @Setter
+    @Column(name = "father_name")
+    private String fatherName;
 
     @Getter
     @Setter
@@ -33,9 +45,12 @@ public class Client {
 
     @Getter
     @Setter
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_client",
+            joinColumns = @JoinColumn(name = "client_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<User> users;
 
     @Getter
     @Setter

@@ -33,12 +33,6 @@ public class Contract {
 
     @Getter
     @Setter
-    @Column(name = "qr_code_image")
-    @Lob
-    private byte[] qrCodeImage;
-
-    @Getter
-    @Setter
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ord_id", referencedColumnName = "ord_id")
     private Ord ord;
